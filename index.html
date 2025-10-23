@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>George & Armor — Streetwear</title>
+  <meta name="description" content="George & Armor — Moda urbana streetwear. Vista sua armadura urbana." />
+  <style>
+    /* Reset simples */
+    :root{--bg:#0b0b0b;--card:#0f0f0f;--accent:#c62b2b;--muted:#bdbdbd;--glass: rgba(255,255,255,0.03)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#070707 0%, #0b0b0b 100%);color:#fff;line-height:1.4}
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid rgba(255,255,255,0.04);position:sticky;top:0;background:linear-gradient(180deg, rgba(11,11,11,0.9), rgba(11,11,11,0.6));backdrop-filter: blur(4px);z-index:50}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:48px;height:48px;display:grid;place-items:center;background:var(--glass);border-radius:10px;padding:6px}
+    .logo svg{width:36px;height:36px}
+    .title{font-weight:700;letter-spacing:0.6px}
+    nav{display:flex;gap:14px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-size:14px}
+    main{max-width:1100px;margin:28px auto;padding:0 18px}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:20px;align-items:center}
+    .hero-left{padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:12px}
+    h1{margin:0 0 10px;font-size:28px}
+    p.lead{margin:0;color:var(--muted)}
+    .cta{margin-top:18px;display:flex;gap:10px}
+    .btn{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-radius:10px;cursor:pointer}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .catalog{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:22px}
+    .card{background:var(--card);border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.03)}
+    .thumb{height:180px;border-radius:8px;background:linear-gradient(135deg,#111 0%, #1a1a1a 100%);display:grid;place-items:center;margin-bottom:10px}
+    .price{font-weight:700}
+    .muted{color:var(--muted);font-size:13px}
+    footer{padding:28px 18px;text-align:center;color:var(--muted);font-size:14px}
+    /* cart */
+    .cart-btn{position:relative}
+    .cart-count{position:absolute;top:-8px;right:-8px;background:var(--accent);width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:12px}
+    .cart-drawer{position:fixed;right:18px;top:80px;background:#070707;border:1px solid rgba(255,255,255,0.04);width:360px;border-radius:12px;padding:12px;box-shadow:0 6px 30px rgba(0,0,0,0.6)}
+    .drawer-item{display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.02)}
+    .drawer-item:last-child{border-bottom:0}
+    .total{display:flex;justify-content:space-between;padding-top:10px;font-weight:700}
+    /* responsive */
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .hero-left{order:2}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo" aria-hidden>
+        <!-- SVG logo: lança estilizada + G -->
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo George & Armor">
+          <rect width="64" height="64" rx="10" fill="black" fill-opacity="0.15"/>
+          <path d="M32 8 L38 28 L32 24 L26 28 Z" fill="#c62b2b" />
+          <path d="M32 16 L34 28 L30 28 Z" fill="#fff" opacity="0.06"/>
+          <circle cx="44" cy="44" r="14" stroke="#c62b2b" stroke-width="2" fill="none" />
+          <text x="18" y="50" fill="#fff" font-size="10" font-family="sans-serif" font-weight="700">G&amp;A</text>
+        </svg>
+      </div>
+      <div>
+        <div class="title">George &amp; Armor</div>
+        <div class="muted">Estilo que protege. Atitude que conquista.</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#produtos">Produtos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+      <button class="btn cart-btn" id="openCart">Carrinho <span class="cart-count" id="cartCount">0</span></button>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-left">
+        <h1>George &amp; Armor — Streetwear urbano</h1>
+        <p class="lead">Coleção casual e streetwear inspirada na coragem de São Jorge. Roupas para quem tem atitude — masculinas, femininas e unissex.</p>
+        <div class="cta">
+          <button class="btn" onclick="document.getElementById('produtos').scrollIntoView({behavior:'smooth'})">Ver produtos</button>
+          <button class="btn secondary" onclick="document.getElementById('sobre').scrollIntoView({behavior:'smooth'})">Nossa história</button>
+        </div>
+        <div style="margin-top:18px;color:var(--muted);font-size:13px">Envio via fornecedor parceiro. Pagamento e confirmação por WhatsApp (simulado).</div>
+      </div>
+      <div style="padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))">
+        <h3 style="margin:0 0 8px">Promoção de lançamento</h3>
+        <div style="font-size:22px;font-weight:700">Frete grátis para São Paulo* acima de R$199</div>
+        <div class="muted" style="margin-top:8px">*Consulte prazos com o fornecedor</div>
+        <div style="margin-top:12px">
+          <img alt="mockup" style="width:100%;border-radius:8px;background:#111;height:220px;object-fit:cover" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='500'><rect width='100%' height='100%' fill='%23111111'/><text x='50%' y='50%' fill='%23bbb' font-size='28' dominant-baseline='middle' text-anchor='middle'>Mockup George &amp; Armor</text></svg>" />
+        </div>
+      </div>
+    </section>
+
+    <section id="produtos">
+      <h2 style="margin-top:28px">Produtos</h2>
+      <div class="catalog" id="catalog"></div>
+    </section>
+
+    <section id="sobre" style="margin-top:28px;padding:18px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border-radius:12px">
+      <h2>Sobre George &amp; Armor</h2>
+      <p class="muted">George &amp; Armor nasce da ideia de unir proteção simbólica e estilo urbano. Inspirados na história de coragem de São Jorge, trazemos peças versáteis para o cotidiano de quem busca atitude.</p>
+      <ul class="muted">
+        <li>Peças unissex (camisetas, moletons, bonés, acessórios)</li>
+        <li>Produção por fornecedores parceiros (dropshipping)</li>
+        <li>Foco: público 16–50 anos, São Paulo (inicialmente)</li>
+      </ul>
+    </section>
+
+    <section id="contato" style="margin-top:18px">
+      <h2>Contato</h2>
+      <p class="muted">Atendimento via WhatsApp (simulado). Após a confirmação do pedido, envie seu telefone e endereço para o fornecedor.</p>
+      <p class="muted">Email: contato@georgeandarmor.com (simulado)</p>
+    </section>
+  </main>
+
+  <footer>
+    © George &amp; Armor — Todos os direitos reservados • Desenvolvido para demonstração
+  </footer>
+
+  <!-- Cart drawer (inserido dinamicamente) -->
+  <script>
+    // Produtos simulados (exemplo para dropshipping)
+    const products = [
+      {id:1,name:'Camiseta Lança G&A',price:79.90,gender:'unissex',size:['P','M','G','GG'],img:null},
+      {id:2,name:'Moletom Cavaleiro',price:179.90,gender:'unissex',size:['P','M','G','GG'],img:null},
+      {id:3,name:'Boné Armadura',price:59.90,gender:'unissex',size:['Único'],img:null},
+      {id:4,name:'Camiseta Dragão Urbana',price:89.90,gender:'feminino',size:['P','M','G'],img:null},
+      {id:5,name:'Jaqueta Street G&A',price:249.90,gender:'masculino',size:['M','G','GG'],img:null},
+      {id:6,name:'Calça Cargo Armor',price:199.90,gender:'unissex',size:['M','G','GG'],img:null}
+    ];
+
+    const cart = [];
+
+    function renderCatalog(){
+      const container = document.getElementById('catalog');
+      container.innerHTML = '';
+      products.forEach(p => {
+        const div = document.createElement('div'); div.className='card';
+        div.innerHTML = `
+          <div class='thumb'>
+            <svg width='100%' height='100%' viewBox='0 0 200 140' xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' fill='%23111111'/><text x='50%' y='50%' fill='%23fff' font-size='14' dominant-baseline='middle' text-anchor='middle'>${p.name}</text></svg>
+          </div>
+          <div style='display:flex;justify-content:space-between;align-items:center'>
+            <div>
+              <div style='font-weight:700'>${p.name}</div>
+              <div class='muted'>${p.gender} • Tamanhos: ${p.size.join('/')}</div>
+            </div>
+            <div style='text-align:right'>
+              <div class='price'>R$ ${p.price.toFixed(2)}</div>
+              <button class='btn' style='margin-top:8px' onclick='addToCart(${p.id})'>Comprar</button>
+            </div>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function addToCart(id){
+      const prod = products.find(x=>x.id===id);
+      const found = cart.find(c=>c.id===id);
+      if(found){ found.qty += 1; } else { cart.push({id:prod.id,name:prod.name,price:prod.price,qty:1}); }
+      updateCartCount();
+      openCartDrawer();
+    }
+
+    function updateCartCount(){
+      const el = document.getElementById('cartCount');
+      const total = cart.reduce((s,i)=>s+i.qty,0);
+      el.textContent = total;
+    }
+
+    function openCartDrawer(){
+      // if exists, remove
+      const existing = document.getElementById('drawer');
+      if(existing) existing.remove();
+      const d = document.createElement('div'); d.className='cart-drawer'; d.id='drawer';
+      d.innerHTML = `<h4>Carrinho</h4>` + (cart.length===0? '<div class="muted">Seu carrinho está vazio.</div>' : cart.map(i=>`<div class="drawer-item"><div style="flex:1"><div style="font-weight:700">${i.name}</div><div class="muted">Qtd: ${i.qty}</div></div><div style="text-align:right">R$ ${(i.price*i.qty).toFixed(2)}</div></div>`).join('') ) + `<div class='total'><div>Total</div><div>R$ ${cart.reduce((s,i)=>s+i.qty*i.price,0).toFixed(2)}</div></div><div style="margin-top:10px;display:flex;gap:8px"><button class='btn' onclick='checkoutWhatsApp()'>Comprar via WhatsApp</button><button class='btn secondary' onclick='clearCart()'>Limpar</button></div>`;
+      document.body.appendChild(d);
+    }
+
+    function checkoutWhatsApp(){
+      if(cart.length===0) return alert('Carrinho vazio');
+      const lines = [];
+      lines.push('Olá, tenho interesse em comprar os itens:');
+      cart.forEach(i=> lines.push(`- ${i.name} (x${i.qty}) — R$ ${(i.price*i.qty).toFixed(2)}`));
+      const total = cart.reduce((s,i)=>s+i.qty*i.price,0).toFixed(2);
+      lines.push(`Total: R$ ${total}`);
+      lines.push('Nome:');
+      lines.push('Endereço:');
+      const text = encodeURIComponent(lines.join('\n'));
+      // Abre WhatsApp (sem número definido) para que o usuário escolha o contato/vendedor
+      const url = `https://wa.me/?text=${text}`;
+      window.open(url, '_blank');
+    }
+
+    function clearCart(){ cart.length=0; updateCartCount(); const ex = document.getElementById('drawer'); if(ex) ex.remove(); }
+
+    document.getElementById('openCart').addEventListener('click', ()=>{
+      openCartDrawer();
+    });
+
+    // init
+    renderCatalog();
+  </script>
+</body>
+</html>
